@@ -14,7 +14,7 @@ while Simbolos != 'si' and Simbolos != 'no':
     Simbolos = input('Desea incluir simbolos?: ').lower()
  
 
-def generar_contraseña(longitud=True, incluir_mayusculas=True, incluir_numeros=True, incluir_simbolos=True): #los Def ya sabes que se usan pa definir caracteres, en este caso es de la funcion generar_contraseña
+def generar_contraseña(longitud, incluir_mayusculas, incluir_numeros=True, incluir_simbolos=True): #los Def ya sabes que se usan pa definir caracteres, en este caso es de la funcion generar_contraseña
     # Aca vamos a definir los caracteres base
     caracteres = string.ascii_lowercase  # Letras minúsculas
 
@@ -25,7 +25,5 @@ def generar_contraseña(longitud=True, incluir_mayusculas=True, incluir_numeros=
         caracteres += string.digits
     if incluir_simbolos:
         caracteres += string.punctuation
-    print(caracteres)
-
-generar_contraseña()
-#Continuara xD
+        
+        #Continuara xD
