@@ -1,29 +1,28 @@
-import random #esto lo que hace es que importa la libreberia random :v y permite que nos de los valores aleatorios para la contraseña 
-import string #si quitas esto se va todo alv, esto es para que podamos usar las letras y numeros en la contraseña
-# Respuesta a si quiere
-Mayusculas = ''
-Numeros = ''
-Simbolos = ''
-while Mayusculas != 'si' and Mayusculas != 'no':
-    Mayusculas = (input('Desea incluir mayusculas?: ')).lower()
+import random
+import string
 
-while Numeros != 'si' and Numeros != 'no':
-    Numeros = input('Desea incluir numeros?: ').lower()
+Contraseña = ''
+Longitud = int(input('Que longitud desea que tenga?: '))
+Contra = string.ascii_lowercase
+mayusculas = ''
+numeros = ''
+simbolos = ''
 
-while Simbolos != 'si' and Simbolos != 'no':
-    Simbolos = input('Desea incluir simbolos?: ').lower()
- 
+while mayusculas != 'si' and mayusculas != 'no':
+    mayusculas = input('Quieres mayusculas?: ')
+while numeros != 'si' and numeros != 'no':
+    numeros = input('Quieres numeros?: ')
+while simbolos != 'si' and simbolos != 'no':
+    simbolos = input('Quieres simbolos?: ')
 
-def generar_contraseña(longitud, incluir_mayusculas, incluir_numeros=True, incluir_simbolos=True): #los Def ya sabes que se usan pa definir caracteres, en este caso es de la funcion generar_contraseña
-    # Aca vamos a definir los caracteres base
-    caracteres = string.ascii_lowercase  # Letras minúsculas
+if mayusculas == 'si':
+    Contra += string.ascii_uppercase
+if numeros == 'si':
+    Contra += string.digits
+if simbolos == 'si':
+    Contra += string.punctuation
 
-    # Agremamos los caracteres según las opciones 
-    if incluir_mayusculas: 
-        caracteres += string.ascii_uppercase
-    if incluir_numeros:
-        caracteres += string.digits
-    if incluir_simbolos:
-        caracteres += string.punctuation
-        
-        #Continuara xD
+for i in range(Longitud):
+    Contraseña += Contra[random.randrange(len(Contra))]
+
+print(Contraseña)
